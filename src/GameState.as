@@ -7,7 +7,7 @@ package
 		
 		override public function create():void
 		{
-			add(new FlxText(50, 50, 200, "TESTING"));
+			add(new LifeGrid(10, 10));
 		}
 		
 	}

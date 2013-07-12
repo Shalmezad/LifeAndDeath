@@ -4,7 +4,8 @@ package
 	
 	public class LifeGrid extends FlxGroup
 	{
-		private var grid:Array;  
+		private var grid:Array;  //grid[x][y]
+		
 		public function LifeGrid(xTiles:int = 0, yTiles:int = 0, xOffset:int = 50, yOffset:int = 50) 
 		{
 			//alright, we know what size this is. Make the grid.
@@ -17,8 +18,14 @@ package
 					cell.y = b * GridCell.HEIGHT + yOffset;
 					grid[a].push(cell);
 					add(cell);
+					
 				}
 			}
+		}
+		
+		public function setTile(x:int, y:int, player:int) {
+			(grid[x][y] as GridCell).player = player;
+			(grid[x][y] as GridCell).redoGraphic();
 		}
 		
 	}

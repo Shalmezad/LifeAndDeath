@@ -7,11 +7,15 @@ package
 		private var grid:Array;  //grid[x][y]
 		private var width:int;
 		private var height:int;
+		private var x:int;
+		private var y:int;
 		
 		public function LifeGrid(xTiles:int = 0, yTiles:int = 0, xOffset:int = 50, yOffset:int = 50) 
 		{
 			width = xTiles;
 			height = yTiles;
+			x = xOffset;
+			y = yOffset;
 			//alright, we know what size this is. Make the grid.
 			grid = new Array();
 			for (var a:int = 0; a < xTiles; a++) {
@@ -139,6 +143,30 @@ package
 					//(grid[e][f] as GridCell).player = newGrid[e][f];
 					setTile(i, j, newGrid[i][j]);
 				}
+			}
+		}
+		
+		public function handleClick(mX:int, mY:int, player:int) :void
+		{
+			//what tile?
+			var xTile:int;
+			var yTile:int;
+			xTile = mX / GridCell.WIDTH - x;
+			yTile = mY / GridCell.HEIGHT - y;
+			//are we in bounds?
+			if (xTile < 0 || yTile < 0) {
+				return;
+			}
+			if (xTile >= width || yTile >= height) {
+				return;
+			}
+			//we are legal. Get the tile.
+			var cell:int = getCell(xTile, yTile);
+			if (cell == 0) {
+				setTile(xTile, yTile, player);
+			}
+			else {
+				setTile(xTile, yTile, 0);
 			}
 		}
 	}

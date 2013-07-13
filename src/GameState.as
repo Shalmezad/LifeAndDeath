@@ -8,19 +8,22 @@ package
 		private var tick:int = 0;
 		override public function create():void
 		{
-			grid = new LifeGrid(10, 10);
+			grid = new LifeGrid(32, 24,0,0);
 			add(grid);
 			
-			grid.setTile(3, 3, 1);
-			grid.setTile(3, 4, 1);
-			grid.setTile(3, 5, 1);
+			
+			grid.setTile(20, 20, 1);
+			grid.setTile(20, 21, 1);
+			grid.setTile(20, 22, 1);
+			grid.setTile(21, 20, 1);
+			grid.setTile(22, 21, 1);
 		}
 		
 		override public function update():void
 		{
 			super.update();
 			tick++
-			if(tick >= 30){
+			if(tick >= 5){
 				grid.step();
 				tick = 0;
 			}

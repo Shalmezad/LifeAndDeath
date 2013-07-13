@@ -3,8 +3,8 @@ package
 	import org.flixel.*;
 	public class GridCell extends FlxSprite
 	{
-		public static const WIDTH:int = 8;
-		public static const HEIGHT:int = 8;
+		public static const WIDTH:int = 10;
+		public static const HEIGHT:int = 10;
 		
 		public var player:int = 0;
 		//0 = none

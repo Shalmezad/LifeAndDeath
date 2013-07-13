@@ -3,8 +3,8 @@ package
 	import org.flixel.*;
 	public class GridCell extends FlxSprite
 	{
-		public static const WIDTH = 8;
-		public static const HEIGHT = 8;
+		public static const WIDTH:int = 8;
+		public static const HEIGHT:int = 8;
 		
 		public var player:int = 0;
 		//0 = none
@@ -18,7 +18,8 @@ package
 		}
 		
 		
-		public function redoGraphic() {
+		public function redoGraphic() :void
+		{
 			switch(player) {
 				case 0:
 					makeGraphic(WIDTH - 2, HEIGHT - 2, 0xffdd0000);
